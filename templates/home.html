@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block 'title' %} Home page {% endblock %}
+
+
+{% block 'content' %}
+<div class="container">
+ {% for p in post %}
+    <h3>{{p.title}}</h3>
+    <span>{{p.category}}</span>&nbsp;|&nbsp;<span>{{p.posted_date}}</span>
+    <br/>
+    <img src="{{MEDIA_URL}}{{p.image.url}}" style="height:500px;width:auto;">
+    <hr/>
+    <p>{{p.content}}</p>
+ {% endfor %}
+</div>
+{% endblock %}

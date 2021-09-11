@@ -1,4 +1,12 @@
-from django.shortcuts import HttpResponse,render
+from django.shortcuts import render
+from blog.models import Post
+
+def home(request):
+    context = {
+        'post':Post.objects.all(),#SELECT * FROM post;
+    }
+    return render(request,'home.html',context)
+
 
 def about(request):
     context = {
@@ -8,4 +16,4 @@ def about(request):
     return render(request,'about.html',context)
 
 def contactus(request):
-    return HttpResponse("Contact us")
+    return render(request,'contact.html')
