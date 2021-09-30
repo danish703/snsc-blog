@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block 'title' %} Dashboard page {% endblock %}
+
+
+{% block 'content' %}
+<div class="container">
+    <h3>Login page</h3>
+    <div class="row justify-content-md-center">
+        <div class="col-md-8 col-md-offset-4">
+            <div class="card">
+                <div class="card-body">
+                    {% include 'messages.html' %}
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">username</label>
+                            <input type="text" name="username" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                                            <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control" id="password">
+                        </div>
+                        <button style="float:right;" type="submit" class="btn btn-success">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

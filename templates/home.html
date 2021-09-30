@@ -11,7 +11,12 @@
     <br/>
     <img src="{{MEDIA_URL}}{{p.image.url}}" style="height:500px;width:auto;">
     <hr/>
-    <p>{{p.content}}</p>
+    <p>{{p.content|truncatewords:30}}</p>
+    <a href="{% url 'details' p.id  %}">read more</a> |
+    <a href="{% url 'deletePost' p.id %}">Delete</a> |
+    <a href="{% url 'updateData' p.id %}">Update</a> |
+
  {% endfor %}
 </div>
 {% endblock %}
+

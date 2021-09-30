@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block 'title' %} Create Post {% endblock %}
+
+{% block 'content' %}
+<div class="container">
+    <form action="{% url 'createPost' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Post Title</label>
+            <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Aa">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Image</label>
+            <input type="file" name="image" id="imageInput">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Content</label>
+            <textarea name="content"  id="" cols="30" rows="10" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Category</label>
+            <select class="form-control" name="category">
+                {% for c in category %}
+                <option value="{{c.id}}">{{c.title}}</option>
+                {% endfor %}
+            </select>
+            <hr/>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+
+
+    </form>
+</div>
+{% endblock %}

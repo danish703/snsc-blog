@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import about,contactus,home
+from .views import (
+    about,contactus,home,
+    detailsPage,deletePost,createPost,
+    createPostByDjangoForm,updateData,dashboard,signin,signup,signout)
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,5 +26,14 @@ urlpatterns = [
     path('',home,name='home'),
     path('admin/', admin.site.urls),
     path('about/',about,name='about'),
-    path('contact/',contactus,name='contact')
+    path('contact/',contactus,name='contact'),
+    path('details/<int:id>',detailsPage,name='details'),
+    path('delete/<int:id>',deletePost,name='deletePost'),
+    path('create/',createPost,name='createPost'),
+    path('create-2/',createPostByDjangoForm,name='createPost2'),
+    path('update/<int:id>',updateData,name='updateData'),
+    path('dashboard/',dashboard,name='dashboard'),
+    path('login/',signin,name='signin'),
+    path('signup/',signup,name='signup'),
+    path('logout/',signout,name='logout'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
